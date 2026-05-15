@@ -1,7 +1,10 @@
+@model List<MusicVideo_MVC.Models.Mv>
+
+
 <body>
     <h1>Clipes e suas avaliações</h1>
 
-    <a href="">Novo clipe</a>
+    <a asp-controller="Mv" asp-action="Cadastro">Novo clipe</a>
 
     <table>
         <thead>
@@ -15,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            @* <tr>
                 <td>Formation</td>
                 <td>Beyonce</td>
                 <td>2016</td>
@@ -24,7 +27,27 @@
                 <td>
                     <button>Excluir</button>
                 </td>
-            </tr>
+            </tr> *@
+
+            @foreach (Mv musicvideo in Model)
+            {
+                <tr>
+                    <td>@musicvideo.MusicName</td>
+                    <td>@musicvideo.Artist</td>
+                    <td>@musicvideo.ReleaseYear</td>
+                    <td>@musicvideo.Rate</td>
+                    <td>@musicvideo.Comment</td>
+                    <td>
+                        <form asp-controller="Mv" asp-action="Deletar" method= "post"
+                            onsubmit= "return confirm('Deseja realmente deletar?');">
+                            <input type="hidden" value= "@musicvideo.Id" name = "id">
+
+                            <button type "submit" >Excluir</button>
+                            
+                        </form>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </body>

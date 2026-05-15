@@ -1,0 +1,30 @@
+<body>
+    <h1>Cadastrar music video</h1>
+
+    <form action="" method="post">
+        <div>
+            <label for="">Nome da Musica</label>
+            <input type="text"name= "MusicName" required>
+        </div>
+        <div>
+            <label for="">Artista</label>
+            <input type="text"name= "Artist">
+        </div>
+        <div>
+            <label for="">Ano de lançamento</label>
+            <input type="number"name= "ReleaseYear" required>
+        </div>
+        <div>
+            <label for="">Nota</label>
+            <input type="text"name= "Rate" required>
+        </div>
+        <div>
+            <label for="">Comentario</label>
+            <input type="text"name= "Comment">
+        </div>
+        <button type= "submit">Salvar</button>
+    </form>
+
+    <a asp-controller="Mv" asp-action="Index">Voltar</a>
+</body>
+
